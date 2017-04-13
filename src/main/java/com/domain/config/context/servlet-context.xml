@@ -15,7 +15,20 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
 	</context:component-scan>
 
-	<annotation-driven />
+	<!--	ResponseBody 返回 字符串时 出现问号 解决
+			http://blog.csdn.net/u011848397/article/details/52097745
+	-->
+	<mvc:annotation-driven >
+		<!-- 消息转换器 -->
+		<mvc:message-converters register-defaults="true">
+			<beans:bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<beans:property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
+			</beans:bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+
+
 	<!--	======================================Spring MVC静态资源处理	-->
 	<mvc:default-servlet-handler/>
 	<!--	======================================Spring MVC静态资源处理	-->

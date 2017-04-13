@@ -97,24 +97,44 @@
 	<!--<beans:bean name="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"></beans:bean>&lt;!&ndash;	spring版本为3.1.1时&ndash;&gt;-->
 	<beans:bean name="defaultJsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></beans:bean><!--	spring版本为4.3.7时-->
 
-	<beans:bean id="mappingJacksonHttpMessageConverter"
-				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-		<beans:property name="supportedMediaTypes">
-			<beans:list>
-				<beans:value>text/html;charset=UTF-8</beans:value>
-			</beans:list>
-		</beans:property>
-	</beans:bean>
+	<!--<beans:bean id="mappingJacksonHttpMessageConverter"-->
+				<!--class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+		<!--<beans:property name="supportedMediaTypes">-->
+			<!--<beans:list>-->
+				<!--<beans:value>text/html;charset=UTF-8</beans:value>-->
+			<!--</beans:list>-->
+		<!--</beans:property>-->
+	<!--</beans:bean>-->
 
-	<beans:bean
-			class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<beans:property name="messageConverters">
-			<beans:list>
-				<!--<beans:bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></beans:bean>-->
-				<beans:ref bean="mappingJacksonHttpMessageConverter"/>
-			</beans:list>
-		</beans:property>
-	</beans:bean>
+	<!--<beans:bean-->
+			<!--class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">-->
+		<!--<beans:property name="messageConverters">-->
+			<!--<beans:list>-->
+				<!--&lt;!&ndash;<beans:bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></beans:bean>&ndash;&gt;-->
+				<!--<beans:ref bean="mappingJacksonHttpMessageConverter"/>-->
+			<!--</beans:list>-->
+		<!--</beans:property>-->
+	<!--</beans:bean>-->
+
+	<!--<beans:bean id="mappingJacksonHttpMessageConverter"-->
+				<!--class="org.springframework.http.converter.StringHttpMessageConverter">-->
+		<!--<beans:property name="supportedMediaTypes">-->
+			<!--<beans:list>-->
+				<!--<beans:value>text/html;charset=UTF-8</beans:value>-->
+				<!--&lt;!&ndash;<beans:value>application/json;charset=UTF-8</beans:value>&ndash;&gt;-->
+			<!--</beans:list>-->
+		<!--</beans:property>-->
+	<!--</beans:bean>-->
+
+	<!--<beans:bean-->
+			<!--class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+		<!--<beans:property name="messageConverters">-->
+			<!--<beans:list>-->
+				<!--&lt;!&ndash;<beans:bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></beans:bean>&ndash;&gt;-->
+				<!--<beans:ref bean="mappingJacksonHttpMessageConverter"/>-->
+			<!--</beans:list>-->
+		<!--</beans:property>-->
+	<!--</beans:bean>-->
 
 
 	<!--  =======================================定时执行任务====================================  -->
